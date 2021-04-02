@@ -1,0 +1,12 @@
+18:44:38 **** Build of configuration Debug for project I_NUCLEO_LRWAN1 ****
+make all 
+arm-none-eabi-gcc "/home/thomas/Cours/M2M/Carte/STM32CubeExpansion_LRWAN_V1.3.1/Middlewares/Third_Party/LoRaWAN/Utilities/low_power_manager.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32L073xx -DUSE_BAND_868 -DUSE_STM32L0XX_NUCLEO '-DUSE_I_NUCLEO_LRWAN1=1' -c -I../../../Core/inc -I../../../LoRaWAN/App/inc -I../../../../../../../../Drivers/STM32L0xx_HAL_Driver/Inc -I../../../../../../../../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../../../../../../../../Drivers/CMSIS/Include -I../../../../../../../../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../../../../../../../../Drivers/BSP/Components/Common -I../../../../../../../../Drivers/BSP/Components/hts221 -I../../../../../../../../Drivers/BSP/Components/lps25hb -I../../../../../../../../Drivers/BSP/Components/lps22hb -I../../../../../../../../Drivers/BSP/MDM32L07X01 -I../../../../../../../../Drivers/BSP/I_NUCLEO_LRWAN1 -I../../../../../../../../Drivers/BSP/STM32L0xx_Nucleo -I../../../../../../../../Middlewares/Third_Party/LoRaWAN/Utilities -Os -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/loRaWAN/Utilities/low_power_manager.d" -MT"Middlewares/loRaWAN/Utilities/low_power_manager.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/loRaWAN/Utilities/low_power_manager.o"
+/home/thomas/Cours/M2M/Carte/STM32CubeExpansion_LRWAN_V1.3.1/Middlewares/Third_Party/LoRaWAN/Utilities/low_power_manager.c:21:10: fatal error: hw.h: No such file or directory
+   21 | #include "hw.h"
+      |          ^~~~~~
+compilation terminated.
+make: *** [Middlewares/loRaWAN/Utilities/subdir.mk:25: Middlewares/loRaWAN/Utilities/low_power_manager.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+18:44:38 Build Failed. 2 errors, 0 warnings. (took 354ms)
+
