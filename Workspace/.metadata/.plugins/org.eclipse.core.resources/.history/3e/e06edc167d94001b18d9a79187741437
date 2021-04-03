@@ -103,7 +103,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 #define LORAWAN_CONFIRMED_MSG      ENABLE         /*LoRaWAN confirmed messages*/
 
-#define SENSORS_MEASURE_CYCLE      1000          /*Periode to do sensors measurement*/
+#define SENSORS_MEASURE_CYCLE      2000          /*Periode to do sensors measurement*/
 
 #define JOIN_MODE                  OTAA_JOIN_MODE   /*ABP_JOIN_MODE */ /*LoRaWan join methode*/
 
@@ -164,7 +164,7 @@ int main(void)
   HAL_NVIC_SetPriority(EXTI4_15_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
   HAL_GPIO_Init(USER_BUTTON_GPIO_PORT, &gpioinitstruct);
-
+  HAL_GPIO_EXTI_IRQHandler(USER_BUTTON_PIN);
   /* Infinite loop */
   while (1)
   {
@@ -352,18 +352,9 @@ static void AlertData(sSendDataBinary_t *SendDataBinary) {
 	  SendDataBinary->Port = LORAWAN_APP_PORT;
 	  SendDataBinary->Ack = !LORAWAN_CONFIRMED_MSG;
 }
-/*
-void EXTI4_15_IRQHandler(void)
-{
-  HAL_GPIO_EXTI_IRQHandler(USER_BUTTON_PIN);
-}
-*/
-void EXTI4_15_IRQHandler(void)
-{
-  HAL_GPIO_EXTI_IRQHandler(USER_BUTTON_PIN);
-}
 
-HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	lora_setButton();
 }
 
@@ -372,4 +363,3 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-

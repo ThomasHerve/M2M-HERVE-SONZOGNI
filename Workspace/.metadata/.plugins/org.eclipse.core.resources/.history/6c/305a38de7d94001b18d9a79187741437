@@ -2288,4 +2288,3 @@ static void Lora_OnLedTimerEvent(void *context)
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-

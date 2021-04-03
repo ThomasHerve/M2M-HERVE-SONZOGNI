@@ -358,12 +358,8 @@ void EXTI4_15_IRQHandler(void)
   HAL_GPIO_EXTI_IRQHandler(USER_BUTTON_PIN);
 }
 */
-void EXTI4_15_IRQHandler(void)
-{
-  HAL_GPIO_EXTI_IRQHandler(USER_BUTTON_PIN);
-}
 
-HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+int HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	lora_setButton();
 }
 
@@ -372,4 +368,3 @@ HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-

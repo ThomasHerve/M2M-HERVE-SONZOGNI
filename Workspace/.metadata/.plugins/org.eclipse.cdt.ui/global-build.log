@@ -1,10 +1,10 @@
-14:30:38 **** Incremental Build of configuration Debug for project I_NUCLEO_LRWAN1 ****
+15:12:15 **** Incremental Build of configuration Debug for project I_NUCLEO_LRWAN1 ****
 make all 
 arm-none-eabi-gcc "../Application/User/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32L073xx -DUSE_BAND_868 -DUSE_STM32L0XX_NUCLEO '-DUSE_I_NUCLEO_LRWAN1=1' -c -I../../../Core/inc -I../../../LoRaWAN/App/inc -I../../../../../../../../Drivers/STM32L0xx_HAL_Driver/Inc -I../../../../../../../../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../../../../../../../../Drivers/CMSIS/Include -I../../../../../../../../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../../../../../../../../Drivers/BSP/Components/Common -I../../../../../../../../Drivers/BSP/Components/hts221 -I../../../../../../../../Drivers/BSP/Components/lps25hb -I../../../../../../../../Drivers/BSP/Components/lps22hb -I../../../../../../../../Drivers/BSP/MDM32L07X01 -I../../../../../../../../Drivers/BSP/I_NUCLEO_LRWAN1 -I../../../../../../../../Drivers/BSP/STM32L0xx_Nucleo -I../../../../../../../../Middlewares/Third_Party/LoRaWAN/Utilities -Os -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/main.d" -MT"Application/User/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/main.o"
-../Application/User/main.c:362:1: warning: return type defaults to 'int' [-Wimplicit-int]
-  362 | HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+../Application/User/main.c:366:1: warning: return type defaults to 'int' [-Wimplicit-int]
+  366 | HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
       | ^~~~~~~~~~~~~~~~~~~~~~
-../Application/User/main.c:362:1: warning: conflicting types for 'HAL_GPIO_EXTI_Callback'
+../Application/User/main.c:366:1: warning: conflicting types for 'HAL_GPIO_EXTI_Callback'
 In file included from ../../../Core/inc/stm32l0xx_hal_conf.h:160,
                  from ../../../../../../../../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:30,
                  from ../../../LoRaWAN/App/inc/hw_conf.h:77,
@@ -13,6 +13,7 @@ In file included from ../../../Core/inc/stm32l0xx_hal_conf.h:160,
 ../../../../../../../../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_gpio.h:291:15: note: previous declaration of 'HAL_GPIO_EXTI_Callback' was here
   291 | void          HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
       |               ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc "/home/thomas/Téléchargements/en.i-cube_lrwan/STM32CubeExpansion_LRWAN_V1.3.1/Projects/STM32L073RZ-Nucleo/Applications/LoRa/AT_Master/Core/src/stm32l0xx_it.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32L073xx -DUSE_BAND_868 -DUSE_STM32L0XX_NUCLEO '-DUSE_I_NUCLEO_LRWAN1=1' -c -I../../../Core/inc -I../../../LoRaWAN/App/inc -I../../../../../../../../Drivers/STM32L0xx_HAL_Driver/Inc -I../../../../../../../../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../../../../../../../../Drivers/CMSIS/Include -I../../../../../../../../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../../../../../../../../Drivers/BSP/Components/Common -I../../../../../../../../Drivers/BSP/Components/hts221 -I../../../../../../../../Drivers/BSP/Components/lps25hb -I../../../../../../../../Drivers/BSP/Components/lps22hb -I../../../../../../../../Drivers/BSP/MDM32L07X01 -I../../../../../../../../Drivers/BSP/I_NUCLEO_LRWAN1 -I../../../../../../../../Drivers/BSP/STM32L0xx_Nucleo -I../../../../../../../../Middlewares/Third_Party/LoRaWAN/Utilities -Os -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/stm32l0xx_it.d" -MT"Application/User/stm32l0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/stm32l0xx_it.o"
 arm-none-eabi-gcc -o "I_NUCLEO_LRWAN1.elf" @"objects.list"   -mcpu=cortex-m0plus -T"../STM32L073RZTx_FLASH.ld" --specs=nosys.specs -Wl,-Map="I_NUCLEO_LRWAN1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: I_NUCLEO_LRWAN1.elf
  
