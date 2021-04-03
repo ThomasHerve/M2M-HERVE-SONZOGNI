@@ -1524,23 +1524,6 @@
         ]
     },
     {
-        "id": "4a8c75ff.39a41c",
-        "type": "debug",
-        "z": "9449e163.4027b",
-        "name": "Test",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1050,
-        "y": 740,
-        "wires": []
-    },
-    {
         "id": "ac037c91.35698",
         "type": "switch",
         "z": "9449e163.4027b",
@@ -1567,8 +1550,7 @@
         "wires": [
             [],
             [
-                "4a8c75ff.39a41c",
-                "55f618df.5b5218"
+                "954173f9.456b6"
             ]
         ]
     },
