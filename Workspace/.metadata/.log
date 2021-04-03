@@ -416,3 +416,21 @@ java.lang.IllegalArgumentException: Path must include project and resource name:
 
 !ENTRY org.eclipse.cdt.core 1 0 2021-04-02 18:47:42.119
 !MESSAGE Indexed 'I_NUCLEO_LRWAN1' (50 sources, 129 headers) in 4,16 sec: 11 564 declarations; 56 224 references; 0 unresolved inclusions; 1 syntax errors; 24 unresolved names (0,035 %)
+!SESSION 2021-04-03 14:15:14.423 -----------------------------------------------
+eclipse.buildId=Version 1.6.0
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-04-03 14:15:22.627
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-04-03 14:15:22.739
+!MESSAGE Log4j initialized with config file /home/thomas/Cours/M2M/Carte/Workspace/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-04-03 14:15:31.516
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-04-03 14:15:31.847
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
