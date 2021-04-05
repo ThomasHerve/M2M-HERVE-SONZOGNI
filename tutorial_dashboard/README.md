@@ -1,3 +1,0 @@
-# Tutorial
-
-[Dashboard](./dashboard)
