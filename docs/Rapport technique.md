@@ -17,7 +17,7 @@ Pour arriver à implémenter cela , nous avons activées les interruptions sur l
 Cela va servir ensuite dans le timer de la lorawan ou lors du réveille nous allons regarder si la variable bouton est vrai et si la valeur est vraie alors nous allons envoyé un paquet de données . et remettre la variable bouton à faux afin que l'interruption ne soit pas trigger plusieurs fois .
 
 ### code nodeRed et grafana
-Ici nous avons simplement mis un switch afin de trié nos données d'alerte de l'utilisateur et celles envoyé périodiquement. Puis nous les avons mis en forme dans grafana avec la liste des dernières alertes et un graphique sur les alertes au cours du temps . 
+nous avons simplement mis un switch dans le nodeRed afin de trié nos données d'alerte de l'utilisateur et celles envoyé périodiquement. Puis nous les avons mis en forme dans grafana avec la liste des dernières alertes et un graphique sur les alertes au cours du temps . 
  
 
 
