@@ -30,6 +30,6 @@ services:
       TB_QUEUE_TYPE: in-memory
     volumes:
       - ./data/thingsboard/data:/data
-      - ./data/thingsboard/logs:/var/log/thingsboard
+      - ./data/thingsboard/logs:/tmp/log/thingsboard
     restart: unless-stopped
     network_mode: bridge

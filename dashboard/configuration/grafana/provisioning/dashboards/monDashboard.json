@@ -54,13 +54,9 @@
       },
       "id": 4,
       "options": {
+        "frameIndex": 1,
         "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "Time"
-          }
-        ]
+        "sortBy": []
       },
       "pluginVersion": "7.4.3",
       "targets": [
@@ -82,14 +78,28 @@
           "measurement": "button",
           "orderByTime": "ASC",
           "policy": "sixty_days",
+          "query": "SELECT \"alert\", \"client\" FROM \"sixty_days\".\"button\" WHERE (\"alertValid\" = '1') AND $timeFilter",
           "queryType": "randomWalk",
+          "rawQuery": true,
           "refId": "A",
-          "resultFormat": "time_series",
+          "resultFormat": "table",
           "select": [
             [
               {
                 "params": [
-                  "digitalOutput0"
+                  "alert"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "client"
                 ],
                 "type": "field"
               },
@@ -99,7 +109,13 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "alertValid",
+              "operator": "=",
+              "value": "1"
+            }
+          ]
         }
       ],
       "title": "Dernières alertes",
@@ -108,14 +124,117 @@
           "id": "organize",
           "options": {
             "excludeByName": {
+              "alert": true,
               "button.distinct": true
             },
             "indexByName": {},
-            "renameByName": {}
+            "renameByName": {
+              "client": "Client"
+            }
           }
         }
       ],
       "type": "table"
+    },
+    {
+      "circleMaxSize": "2",
+      "circleMinSize": "1",
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "datasource": "InfluxDB",
+      "decimals": 0,
+      "esMetric": "Count",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "hideEmpty": false,
+      "hideZero": false,
+      "id": 6,
+      "initialZoom": 1,
+      "locationData": "table",
+      "mapCenter": "(0°, 0°)",
+      "mapCenterLatitude": 0,
+      "mapCenterLongitude": 0,
+      "maxDataPoints": 1,
+      "mouseWheelZoom": true,
+      "pluginVersion": "7.4.3",
+      "showLegend": true,
+      "stickyLabels": false,
+      "tableQueryOptions": {
+        "geohashField": "geohash",
+        "labelField": "country",
+        "latitudeField": "latitude",
+        "longitudeField": "longitude",
+        "metricField": "metric",
+        "queryType": "coordinates"
+      },
+      "targets": [
+        {
+          "groupBy": [],
+          "hide": false,
+          "measurement": "button",
+          "orderByTime": "ASC",
+          "policy": "sixty_days",
+          "query": "SELECT \"metric\", \"latitude\", \"longitude\" FROM \"sixty_days\".\"button\" WHERE (\"alertValid\" = '1') AND $timeFilter GROUP BY \"metric\", \"latitude\", \"longitude\"",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "latitude"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "longitude"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "country"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "alertValid",
+              "operator": "=",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "thresholds": "0,10",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Localisation des alertes",
+      "type": "grafana-worldmap-panel",
+      "unitPlural": "",
+      "unitSingle": "",
+      "unitSingular": "",
+      "valueName": "current"
     },
     {
       "aliasColors": {},
@@ -132,7 +251,7 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 9,
+        "h": 8,
         "w": 12,
         "x": 0,
         "y": 8
@@ -149,7 +268,7 @@
         "values": false
       },
       "lines": true,
-      "linewidth": 4,
+      "linewidth": 7,
       "nullPointMode": "null",
       "options": {
         "alertThreshold": true
@@ -189,7 +308,7 @@
             [
               {
                 "params": [
-                  "digitalOutput0"
+                  "alert"
                 ],
                 "type": "field"
               },
@@ -199,7 +318,13 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "alertValid",
+              "operator": "=",
+              "value": "1"
+            }
+          ]
         }
       ],
       "thresholds": [],
@@ -208,10 +333,24 @@
       "timeShift": null,
       "title": "Alertes au cours du temps",
       "tooltip": {
-        "shared": true,
+        "shared": false,
         "sort": 0,
-        "value_type": "individual"
+        "value_type": "cumulative"
       },
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": false,
+              "alert": false,
+              "client": false
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -246,6 +385,7 @@
       }
     }
   ],
+  "refresh": false,
   "schemaVersion": 27,
   "style": "dark",
   "tags": [],
@@ -253,12 +393,12 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
-    "to": "now"
+    "from": "2021-04-05T17:58:37.606Z",
+    "to": "2021-04-05T20:09:04.270Z"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Mon dashboard",
   "uid": "FTQhB2lGz",
-  "version": 3
+  "version": 5
 }
