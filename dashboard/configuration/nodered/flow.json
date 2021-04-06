@@ -1575,7 +1575,7 @@
         "type": "function",
         "z": "9449e163.4027b",
         "name": "",
-        "func": "\nreturn msg;",
+        "func": "if(msg.payload.object.digitalOutput0 == undefined) return undefined;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
